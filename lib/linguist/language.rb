@@ -10,7 +10,6 @@ require 'linguist/heuristics'
 require 'linguist/samples'
 require 'linguist/file_blob'
 require 'linguist/blob_helper'
-require 'linguist/strategy/filename'
 require 'linguist/strategy/shebang'
 
 module Linguist
@@ -94,7 +93,7 @@ module Linguist
     end
 
     STRATEGIES = [
-      Linguist::Strategy::Filename,
+      lambda { |blob, _| find_by_filename(blob.name.to_s) },
       Linguist::Strategy::Shebang,
       Linguist::Heuristics,
       Linguist::Classifier
