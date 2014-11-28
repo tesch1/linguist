@@ -53,16 +53,13 @@ module Linguist
             end
           else
             path = File.join(dirname, filename)
-
-            if File.extname(filename) == ""
-              raise "#{path} is missing an extension, maybe it belongs in filenames/ subdir"
-            end
+            extname = File.extname(filename)
 
             yield({
               :path     => path,
               :language => category,
               :interpreter => Linguist.interpreter_from_shebang(File.read(path)),
-              :extname  => File.extname(filename)
+              :extname  => extname.empty? ? nil : extname
             })
           end
         end
@@ -144,7 +141,7 @@ module Linguist
         lines[0...5].any? { |l| l.match(/exec (\w+).+\$0.+\$@/) }
         script = $1
       end
-      
+
       File.basename(script)
     else
       nil

@@ -539,7 +539,7 @@ module Linguist
     if extnames = extensions[name]
       extnames.each do |extname|
         if !options['extensions'].include?(extname)
-          warn "#{name} has a sample with extension (#{extname}) that isn't explicitly defined in languages.yml" unless extname == '.script!'
+          warn "#{name} has a sample with extension (#{extname}) that isn't explicitly defined in languages.yml"
           options['extensions'] << extname
         end
       end
