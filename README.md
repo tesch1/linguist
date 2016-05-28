@@ -68,7 +68,9 @@ vim: set ft=cpp:
 
 ##### Emacs
 ```
+# Two possibilities, must be first line of the file:
 -*- mode: php;-*-
+-*- c++ -*-
 ```
 
 ## Usage

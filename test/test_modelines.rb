@@ -27,6 +27,7 @@ class TestModelines < Minitest::Test
     assert_modeline Language["C++"], fixture_blob("Data/Modelines/seeplusplusEmacs7")
     assert_modeline Language["C++"], fixture_blob("Data/Modelines/seeplusplusEmacs8")
     assert_modeline Language["C++"], fixture_blob("Data/Modelines/seeplusplusEmacs9")
+    assert_modeline Language["Scheme"], fixture_blob("Data/Modelines/not_E.scm")
     assert_modeline Language["Text"], fixture_blob("Data/Modelines/fundamentalEmacs.c")
     assert_modeline Language["Prolog"], fixture_blob("Data/Modelines/not_perl.pl")
     assert_modeline Language["Smalltalk"], fixture_blob("Data/Modelines/example_smalltalk.md")

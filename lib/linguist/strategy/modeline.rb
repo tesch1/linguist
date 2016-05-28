@@ -1,7 +1,11 @@
 module Linguist
   module Strategy
     class Modeline
-      EMACS_MODELINE = /-\*-\s*(?:(?!mode)[\w-]+\s*:\s*(?:[\w+-]+)\s*;?\s*)*(?:mode\s*:)?\s*([\w+-]+)\s*(?:;\s*(?!mode)[\w-]+\s*:\s*[\w+-]+\s*)*;?\s*-\*-/i
+      # Most basic Emacs form modeline
+      EMACS_MODELINE_1 = /-\*-\s*([\w+-]+)\s*-\*-/i
+
+      # Mode set as a file-local variable, potentially in a list of other file-local variables
+      EMACS_MODELINE_2 = /-\*-\s*(?:(?!mode)[\w-]+\s*:\s*(?:[\w+-]+)\s*;?\s*)*(?:mode\s*:)\s*([\w+-]+)\s*(?:;\s*(?!mode)[\w-]+\s*:\s*[\w+-]+\s*)*;?\s*-\*-/i
 
       # First form vim modeline
       # [text]{white}{vi:|vim:|ex:}[white]{options}
@@ -13,7 +17,7 @@ module Linguist
       # ex: 'vim set syntax=ruby:'
       VIM_MODELINE_2 = /(?:vim|vi|Vim|ex):\s*se(?:t)?.*\s(?:ft|filetype|syntax)=(\w+)\s?.*:/i
 
-      MODELINES = [EMACS_MODELINE, VIM_MODELINE_1, VIM_MODELINE_2]
+      MODELINES = [EMACS_MODELINE_1, EMACS_MODELINE_2, VIM_MODELINE_1, VIM_MODELINE_2]
 
       # Scope of the search for modelines
       # Number of lines to check at the beginning and at the end of the file
