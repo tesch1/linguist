@@ -4,7 +4,7 @@ module Linguist
       # Most basic Emacs form modeline
       EMACS_MODELINE_1 = /-\*-\s*([\w+-]+)\s*-\*-/i
 
-      # Mode set as a file-local variable, potentially in a list of other file-local variables
+      # Mode set as an Emacs file-local variable, potentially within a list of other file-local variables
       EMACS_MODELINE_2 = /-\*-\s*(?:(?!mode)[\w-]+\s*:\s*(?:[\w+-]+)\s*;?\s*)*(?:mode\s*:)\s*([\w+-]+)\s*(?:;\s*(?!mode)[\w-]+\s*:\s*[\w+-]+\s*)*;?\s*-\*-/i
 
       # First form vim modeline
